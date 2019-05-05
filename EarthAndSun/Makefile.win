@@ -1,0 +1,28 @@
+# Project: EarthAndSun
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = EarthAndSun.o
+LINKOBJ  = EarthAndSun.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc -lopengl32 -lfreeglut -lglu32
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include"
+BIN      = EarthAndSun.exe
+CXXFLAGS = $(CXXINCS) -lglu32 -lglut32 -lopengl32
+CFLAGS   = $(INCS) -lglu32 -lglut32 -lopengl32
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+EarthAndSun.o: EarthAndSun.cpp
+	$(CPP) -c EarthAndSun.cpp -o EarthAndSun.o $(CXXFLAGS)
