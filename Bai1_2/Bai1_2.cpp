@@ -1,6 +1,7 @@
 #include <GL/gl.h>
 #include <GL/glut.h>
 #include <iostream>
+#include <math.h>
 
 using namespace std;
 void bre(int x1, int y1, int x2, int y2, int dashed, int thick){
@@ -52,6 +53,88 @@ void breTK(int x1, int y1, int x2, int y2){
 		mask=mask? mask : 0x8000000000;
 	}
 }
+
+void breTQ(int x1, int y1, int x2, int y2){
+	int dx, dy, x, y, d;
+	x = x1;
+	y = y1;
+	dx = abs(x2 - x1);
+	dy = abs(y2 - y1);
+	int sx = (x1 < x2) ? 1 : -1; 
+	int sy = (y1 < y2) ? 1 : -1;
+	d = dx - 2*dy;
+	
+	bool p = (dx > dy) ? true : false;
+	
+	if(p)
+		while(true){
+			if(x > x2 && x1 < x2) return;
+			if(x < x2 && x1 > x2) return;
+			glVertex2f(x,y);
+			if(d > 0)d = d - 2*dy;
+			else {
+				d = d + 2*dx - 2*dy;
+				y += sy;
+			}
+			x += sx;
+		}
+	else
+		while(true){
+			if(y > y2 && y1 < y2) return;
+			if(y < y2 && y1 > y2) return;
+			glVertex2f(x,y);
+			if(d > 0)d = d - 2*dx;
+			else {
+				d = d + 2*dy - 2*dx;
+				x += sx;
+			}
+			y += sy;
+		}
+}
+
+//void breTQ1(int x1, int y1, int x2, int y2){
+//	int dx, dy, x, y, d;
+//	x = x1;
+//	y = y1;
+//	dx = abs(x2 - x1);
+//	dy = abs(y2 - y1);
+//	int sx = (x1 < x2) ? 1 : -1; 
+//	int sy = (y1 < y2) ? 1 : -1;
+//	d = dx - 2*dy;
+//	while(true){
+//		if(x > x2 && x1 < x2) return;
+//		if(x < x2 && x1 > x2) return;
+//		glVertex2f(x,y);
+//		if(d > 0)d = d - 2*dy;
+//		else {
+//			d = d + 2*dx - 2*dy;
+//			y += sy;
+//		}
+//		x += sx;
+//	}
+//}
+//
+//void breTQ2(int x1, int y1, int x2, int y2){
+//	int dx, dy, x, y, d;
+//	x = x1;
+//	y = y1;
+//	dx = abs(x2 - x1);
+//	dy = abs(y2 - y1);
+//	int sx = (x1 < x2) ? 1 : -1; 
+//	int sy = (y1 < y2) ? 1 : -1;
+//	d = dx - 2*dy;
+//	while(true){
+//		if(y > y2 && y1 < y2) return;
+//		if(y < y2 && y1 > y2) return;
+//		glVertex2f(x,y);
+//		if(d > 0)d = d - 2*dx;
+//		else {
+//			d = d + 2*dy - 2*dx;
+//			x += sx;
+//		}
+//		y += sy;
+//	}
+//}
 
 void bre1(int x1, int y1, int x2, int y2){
 	int dx, dy, x, y, d;
@@ -208,18 +291,26 @@ void display(void){
 	bre3(180,-180,-180,180);
 		// Ve duong thang
 		glColor3f (0.0, 1.0, 0.0);
-		bre1(20,10,150,70);
-		bre2(10,20,70,150);
-		bre3(-10,20,-70,150);
-		bre4(-20,10,-150,70);
-		bre5(-20,-10,-150,-70);
-		bre6(-10,-20,-70,-150);
-		bre7(10,-20,70,-150);
-		bre8(20,-10,150,-70);
+		//bre1(20,10,150,70);
+		breTQ(20,10,150,70);		
+		//bre2(10,20,70,150);
+		breTQ(10,20,70,150);
+		//bre3(-10,20,-70,150);
+		breTQ(-10,20,-70,150);
+		//bre4(-20,10,-150,70);
+		breTQ(-20,10,-150,70);
+		//bre5(-20,-10,-150,-70);
+		breTQ(-20,-10,-150,-70);
+		//bre6(-10,-20,-70,-150);
+		breTQ(-10,-20,-70,-150);
+		//bre7(10,-20,70,-150);
+		breTQ(10,-20,70,-150);
+		//bre8(20,-10,150,-70);
+		breTQ(20,-10,150,-70);
 		
-		bre(70,10,180,30, 10, 7);
+		//bre(70,10,180,30, 10, 7);
 		//breTK(70,10,180,30);
-		breTK(70,2,180,22);
+		//breTK(70,2,180,22);
 	glEnd();
 	glFlush();
 }
