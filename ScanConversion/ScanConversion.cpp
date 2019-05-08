@@ -9,10 +9,14 @@ void HCN(int x0, int y0, int width, int height){
 			glVertex2i(x,y);
 }
 
-void Tron(int x, int y, int r){
-	for(int angle = 0; angle < 360; angle++){
-		glVertex2i(x,y);
-		glVertex2f(r * cos(angle) + x, r * sin(angle) + y);
+void Tron(int x0, int y0, int r){
+	for(int angle = 0; angle < 90; angle++){
+		int s = x0 - r * cos(angle * pi / 180);
+		int e = x0 + r * cos(angle * pi / 180);
+		for(int x = s; x <= e; x++){		 
+			glVertex2i(x, y0 + r * sin(angle * pi / 180));
+			glVertex2i(x, y0 - r * sin(angle * pi / 180));
+		}
 	}
 }
 
@@ -23,7 +27,7 @@ void display(void){
 		HCN(20, 20, 100, 100);
 	glEnd();
 	
-	glBegin(GL_LINES);
+	glBegin(GL_POINTS);
 		glColor3f (1.0, 1.0, 1.0);
 		Tron(200, 200, 40);
 	glEnd();
@@ -33,7 +37,7 @@ void init (void) {
 	glClearColor (0.0, 0.0, 0.0, 0.0);
 	glMatrixMode(GL_PROJECTION);
 	glLoadIdentity();
-	glOrtho(0.0, 800.0, 0.0, 800.0, -1.0, 1.0);
+	glOrtho(0.0, 250.0, 0.0, 250.0, -1.0, 1.0);
 }
 int main(int argc, char** argv){
 	glutInit(&argc, argv);
