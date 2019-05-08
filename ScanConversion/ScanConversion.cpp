@@ -11,11 +11,11 @@ void HCN(int x0, int y0, int width, int height){
 
 void Tron(int x0, int y0, int r){
 	for(int angle = 0; angle < 90; angle++){
-		int s = x0 - r * cos(angle * pi / 180);
-		int e = x0 + r * cos(angle * pi / 180);
-		for(int x = s; x <= e; x++){		 
-			glVertex2i(x, y0 + r * sin(angle * pi / 180));
-			glVertex2i(x, y0 - r * sin(angle * pi / 180));
+		int a = r * cos(angle * pi / 180);
+		for(int x = x0 - a; x <= x0 + a; x++){
+			int b = r * sin(angle * pi / 180);
+			glVertex2i(x, y0 + b);
+			glVertex2i(x, y0 - b);
 		}
 	}
 }
