@@ -90,6 +90,62 @@ void DrawHand(){
 					glPopMatrix();
 													
 				glPopMatrix();
+				
+				// Fingter2R
+				glPushMatrix();
+				glTranslatef(3, 0.35, 0.375);
+				glRotatef(spinFingter2, 0.0, 0.0, 1.0);
+					
+					// Cube5
+					glPushMatrix();
+					glTranslatef(0.5, 0.0, 0.0);
+					glScalef(1.0, 0.3, 0.25);
+					glutWireCube (1.0);
+					glPopMatrix();
+					
+					// ICube6
+					glPushMatrix();
+					glTranslatef(1, 0.0, 0.0);
+					glRotatef(spinICube6, 0.0, 0.0, 1.0);
+					
+						// Cube6
+						glPushMatrix();
+						glTranslatef(0.5, 0.0, 0.0);
+						glScalef(1.0, 0.3, 0.25);
+						glutWireCube (1.0);
+						glPopMatrix();
+					
+					glPopMatrix();
+													
+				glPopMatrix();
+				
+				// Fingter2L
+				glPushMatrix();
+				glTranslatef(3, 0.35, -0.375);
+				glRotatef(spinFingter2, 0.0, 0.0, 1.0);
+					
+					// Cube5
+					glPushMatrix();
+					glTranslatef(0.5, 0.0, 0.0);
+					glScalef(1.0, 0.3, 0.25);
+					glutWireCube (1.0);
+					glPopMatrix();
+					
+					// ICube6
+					glPushMatrix();
+					glTranslatef(1, 0.0, 0.0);
+					glRotatef(spinICube6, 0.0, 0.0, 1.0);
+					
+						// Cube6
+						glPushMatrix();
+						glTranslatef(0.5, 0.0, 0.0);
+						glScalef(1.0, 0.3, 0.25);
+						glutWireCube (1.0);
+						glPopMatrix();
+					
+					glPopMatrix();
+													
+				glPopMatrix();
 										
 			glPopMatrix();						
 			
