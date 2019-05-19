@@ -2,12 +2,12 @@
 #include <GL/glu.h>
 #include <GL/glut.h>
 
-float spinIHandRobot = 30; // WS
-float spinICube2 = -20; // ws
-float spinFingter1 = -15; // ED
-float spinICube4 = 30; // ed
+float spinIHandRobot = 0; // WS
+float spinICube2 = 40; // ws
+float spinFingter1 = -45; // ED
+float spinICube4 = 55; // ed
 float spinFingter2 = 20; // RF
-float spinICube6 = -45; // rf
+float spinICube6 = -55; // rf
 
 void DrawHand(){
 	// IHandRobot
@@ -224,7 +224,7 @@ void display(void){
 	glClear (GL_COLOR_BUFFER_BIT);
 	glColor3f (1.0, 1.0, 1.0);
 	glLoadIdentity ();
-	gluLookAt (0.0, 0.0, 10.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
+	gluLookAt (2.5, 2, 6.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
 	
 	DrawHand();
 	
