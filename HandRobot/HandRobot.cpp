@@ -13,6 +13,7 @@ void DrawHand(){
 	// IHandRobot
 	glPushMatrix();
 	glTranslatef(-3.0, 0.0, 0.0);
+	glRotatef(20, 0.0, 1.0, 0.0);	
 	glRotatef(spinIHandRobot, 0.0, 0.0, 1.0);		
 		// Hand
 		glPushMatrix();
@@ -224,7 +225,7 @@ void display(void){
 	glClear (GL_COLOR_BUFFER_BIT);
 	glColor3f (1.0, 1.0, 1.0);
 	glLoadIdentity ();
-	gluLookAt (2.5, 2, 6.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0);
+	gluLookAt (2.5, 2, 6.0, 0.0, 0.0, 0.0, 0.0, 1, 0.0);
 	
 	DrawHand();
 	

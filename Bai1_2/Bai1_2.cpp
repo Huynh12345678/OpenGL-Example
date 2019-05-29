@@ -71,6 +71,7 @@ void breTQ(int x1, int y1, int x2, int y2){
 			if(x > x2 && x1 < x2) return;
 			if(x < x2 && x1 > x2) return;
 			glVertex2f(x,y);
+			cout<<"\t"<<x<<"\t"<<y<<"\t"<<d<<endl;
 			if(d > 0)d = d - 2*dy;
 			else {
 				d = d + 2*dx - 2*dy;
@@ -83,6 +84,7 @@ void breTQ(int x1, int y1, int x2, int y2){
 			if(y > y2 && y1 < y2) return;
 			if(y < y2 && y1 > y2) return;
 			glVertex2f(x,y);
+			cout<<"\t"<<x<<"\t"<<y<<"\t"<<d<<endl;
 			if(d > 0)d = d - 2*dx;
 			else {
 				d = d + 2*dy - 2*dx;
@@ -145,6 +147,7 @@ void bre1(int x1, int y1, int x2, int y2){
 	d = dx - 2*dy;
 	while(x <= x2){
 		glVertex2f(x,y);
+		cout<<"\t"<<x<<"\t"<<y<<"\t"<<d<<endl;
 		if(d > 0)d = d - 2*dy;
 		else {
 			d = d + 2*dx - 2*dy;
@@ -160,7 +163,7 @@ void bre2(int x1, int y1, int x2, int y2){
 	y = y1;
 	dx = x2 - x1;
 	dy = y2 - y1;
-	d = dx - 2*dy;
+	d = dy - 2*dx;
 	while(y <= y2){
 		glVertex2f(x,y);
 		if(d > 0)d = d - 2*dx;
@@ -178,7 +181,7 @@ void bre3(int x1, int y1, int x2, int y2){
 	y = y1;
 	dx = x1 - x2;
 	dy = y2 - y1;
-	d = dx - 2*dy;
+	d = dy - 2*dx;
 	while(y <= y2){
 		glVertex2f(x,y);
 		if(d > 0)d = d - 2*dx;
@@ -232,7 +235,7 @@ void bre6(int x1, int y1, int x2, int y2){
 	y = y1;
 	dx = x1 - x2;
 	dy = y1 - y2;
-	d = dx - 2*dy;
+	d = dy - 2*dx;
 	while(y >= y2){
 		glVertex2f(x,y);
 		if(d > 0)d = d - 2*dx;
@@ -250,9 +253,10 @@ void bre7(int x1, int y1, int x2, int y2){
 	y = y1;
 	dx = x2 - x1;
 	dy = y1 - y2;
-	d = dx - 2*dy;
+	d = dy - 2*dx;
 	while(y >= y2){
 		glVertex2f(x,y);
+		cout<<"\t"<<x<<"\t"<<y<<"\t"<<d<<endl;
 		if(d > 0)d = d - 2*dx;
 		else {
 			d = d + 2*dy - 2*dx;
@@ -284,34 +288,38 @@ void display(void){
 	glClear (GL_COLOR_BUFFER_BIT);	
 	glBegin(GL_POINTS);
 	// Ve truc
-	glColor3f (1.0, 0.0, 0.0);
-	bre1(-200,0,200,0);
-	bre2(0,-200,0,200);
-	bre1(-180,-180,180,180);
-	bre3(180,-180,-180,180);
-		// Ve duong thang
-		glColor3f (0.0, 1.0, 0.0);
-		//bre1(20,10,150,70);
-		breTQ(20,10,150,70);		
-		//bre2(10,20,70,150);
-		breTQ(10,20,70,150);
-		//bre3(-10,20,-70,150);
-		breTQ(-10,20,-70,150);
-		//bre4(-20,10,-150,70);
-		breTQ(-20,10,-150,70);
-		//bre5(-20,-10,-150,-70);
-		breTQ(-20,-10,-150,-70);
-		//bre6(-10,-20,-70,-150);
-		breTQ(-10,-20,-70,-150);
-		//bre7(10,-20,70,-150);
-		breTQ(10,-20,70,-150);
-		//bre8(20,-10,150,-70);
-		breTQ(20,-10,150,-70);
+//	glColor3f (1.0, 0.0, 0.0);
+//	bre1(-200,0,200,0);
+//	bre2(0,-200,0,200);
+//	bre1(-180,-180,180,180);
+//	bre3(180,-180,-180,180);
+//		// Ve duong thang
+//		glColor3f (0.0, 1.0, 0.0);
+//		//bre1(20,10,150,70);
+//		breTQ(20,10,150,70);		
+//		//bre2(10,20,70,150);
+//		breTQ(10,20,70,150);
+//		//bre3(-10,20,-70,150);
+//		breTQ(-10,20,-70,150);
+//		//bre4(-20,10,-150,70);
+//		breTQ(-20,10,-150,70);
+//		//bre5(-20,-10,-150,-70);
+//		breTQ(-20,-10,-150,-70);
+//		//bre6(-10,-20,-70,-150);
+//		breTQ(-10,-20,-70,-150);
+//		//bre7(10,-20,70,-150);
+//		breTQ(10,-20,70,-150);
+//		//bre8(20,-10,150,-70);
+//		breTQ(20,-10,150,-70);
 		
 		//bre(70,10,180,30, 10, 7);
 		//breTK(70,10,180,30);
 		//breTK(70,2,180,22);
+		bre7(10, -5, 15, -20);
 	glEnd();
+	
+	//bre1(12,20,22,27);
+	
 	glFlush();
 }
 void init (void) {
